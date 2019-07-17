@@ -1,0 +1,72 @@
+!!!
+%html
+  %head
+    %link{"data-turbolinks-track" => "reload", :href => "/assets/application-20597f7122b97f433c4487edf7d6a0cfc9e951e2a661b8b0c7320b95bbd38ccd.css", :media => "all", :rel => "stylesheets"}/
+    %script{"data-turbolinks-track" => "reload", :src => "/assets/application-92a91cf5753a538c5407a46c726acab43576fb46358ffa8a7ee0ee0719aa2f51.js"}
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title ChatSpace
+    %meta{:content => "authenticity_token", :name => "csrf-param"}/
+    %meta{:content => "kkpzX2MGqVXDSfXvj55rSn+o25qQg9jppTn3s+uk47nBbtp2rdLaWiQJRMIJO6c1HG90KxY/HuHpdrY7VAR3qA==", :name => "csrf-token"}/
+  %body
+    .flash-box
+      グループを作成しました。
+      / 左側の箱
+    .wrapper
+      .chat-side
+        .side-header
+          .side-header__box
+            %p.side-header__box__user-name test_user            
+            %ul.side-header__box__menu
+              %li.side-header__box__menu__new-group
+                %a{:href => ""}
+                  %i.fa.fa-edit
+                  
+              %li.side-header__box__menu__edit-user
+                %a{:href => ""}
+                  %i.fa.fa-cog
+        .groups
+          %a{:href => ""}
+            .group
+              %p.group__group-name dfsasf
+              %p.group__latest-message まだメッセージがありません
+          %a{:href => ""}
+            .group
+              %p.group__group-name boda
+              %p.group__latest-message 入力されたテキスト
+          %a{:href => ""}
+            .group
+              %p.group__group-name fds
+              %p.group__latest-message まだメッセージがありません
+          %a{:href => ""}
+            .group
+              %p.group__group-name boda
+              %p.group__latest-message 入力されたテキスト
+      / 左側の箱
+      
+      / 右側の箱
+      .chat-main
+        .main-header
+          .main-header__left-box
+            %h2.main-header__left-box__current-group{"data-group_id" => ""}
+              グループ名
+            %ul.main-header__left-box__member-list  
+              Member：            
+              %li.main-header__left-box__member-list__member 
+              maru
+          %a{:href => "/groups/2394/edit"}
+            .main-header__edit-btn Edit
+        .messages
+          = render "messages"
+        / フォーム
+        .form
+          %form#new_message.new_message{"accept-charset" => "UTF-8", :action => "/groups/2394/messages", :enctype => "multipart/form-data", :method => "post"}
+            %input{:name => "utf8", :type => "hidden", :value => "✓"}/
+            %input{:name => "authenticity_token", :type => "hidden", :value => "HAgGbpLn7j99nAWCt0nBLw1aJvTxdYJZKuFuvdT05+2VaGCr2LE9iUGU1IfIsp52q3WvfVy3pZoU0GGPDgNGBg=="}/
+            .input-box
+              %input#message_content.input-box__text{:name => "message[content]", :placeholder => "type a message", :type => "text"}/
+              %label.input-box__image{:for => "message_image"}
+                %i.fa.fa-image
+                
+                %input#message_image.input-box__image__file{:name => "message[image]", :type => "file"}/
+            %input.submit-btn{"data-disable-with" => "Send", :name => "commit", :type => "submit", :value => "Send"}/
+        / 右側の箱

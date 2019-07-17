@@ -10,7 +10,7 @@
   %body
     .flash-box
       グループを作成しました。
-      / 左側の箱
+      
     .wrapper
       .chat-side
         .side-header
@@ -41,9 +41,9 @@
             .group
               %p.group__group-name boda
               %p.group__latest-message 入力されたテキスト
-      / 左側の箱
       
-      / 右側の箱
+      
+      
       .chat-main
         .main-header
           .main-header__left-box
@@ -57,7 +57,7 @@
             .main-header__edit-btn Edit
         .messages
           = render "messages"
-        / フォーム
+        
         .form
           %form#new_message.new_message{"accept-charset" => "UTF-8", :action => "/groups/2394/messages", :enctype => "multipart/form-data", :method => "post"}
             %input{:name => "utf8", :type => "hidden", :value => "✓"}/
@@ -69,4 +69,4 @@
                 
                 %input#message_image.input-box__image__file{:name => "message[image]", :type => "file"}/
             %input.submit-btn{"data-disable-with" => "Send", :name => "commit", :type => "submit", :value => "Send"}/
-        / 右側の箱
+        

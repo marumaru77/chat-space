@@ -47,16 +47,14 @@ a {
           display: flex;
           &__new-group {
             margin-left: 0.3rem;
-            i {
+            a {
               color: $white;
-              font-size: inherit;                             
+              font-size: inherit;
             }
           }
-        
-      
           &__edit-user {
             margin-left: 0.3rem;
-            i {
+            a {
               color: $white;
               font-size: inherit;
             }
@@ -73,17 +71,20 @@ a {
       bottom: 0;
       overflow: scroll;
       .group {
-        color: $white;
-        font-weight: bold;
-        text-decoration: none;
-        &__group-name {
-          font-size: 15px;
-          padding-bottom: 5px;          
+        width: 100%;
+        a {
+          color: $white;
+          font-weight: bold;
+          text-decoration: none;
+          .group__group-name {
+            font-size: 15px;
+            padding-bottom: 5px;
+          }
+          .group__latest-message {
+            font-size: 11px;
+            padding-bottom: 40px;
+          }
         }
-        &__latest-message {
-          font-size: 11px;
-          padding-bottom: 40px;         
-        }        
       }
     }
   }
@@ -121,6 +122,7 @@ a {
         border: solid 1px $aqua;
         position: absolute;
         right: 40px;
+        top: 0;
       }
     }
     .messages {
@@ -159,7 +161,7 @@ a {
       position: fixed;
       bottom: 0;
       width: calc(100vw - 380px);
-      .new_message {
+      .input-box {
         position: relative;
         .input-box {
           display: flex;
@@ -176,8 +178,8 @@ a {
             top: 10px;
             right: 125px;
             cursor: pointer;
-            &__file {
-            display: none;
+            .hidden {
+              display: none;
             }
           }
         }

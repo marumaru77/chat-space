@@ -1,9 +1,11 @@
-.messege
+.message
   .message__upper-info
-    %p.message__upper-info__talker test_user
-    %p.message__upper-info__date 2019/7/16
-  %p.message__text こんにちわ
-  .message__upper-info
-    %p.message__upper-info__talker test_user
-    %p.message__upper-info__date 2019/7/16
-  %p.message__text ありがとう
+    .message__upper-info__talker 
+      = messages.user.name
+    .message__upper-info__date
+      = messages.created_at.strftime("%Y/%m/%d %H:%M")
+  .message__text 
+    - if messages.content.present?
+      %p.lower-message__content
+        = messages.content
+    = image_tag messages.image.url, class: 'lower-message__image' if messages.image.present?

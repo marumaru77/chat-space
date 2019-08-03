@@ -1,47 +1,6 @@
 
-.flash-box
-  グループを作成しました。
-      
 .wrapper
-  .chat-side
-    .side-header
-      .side-header__box
-        %p.side-header__box__user-name test_user            
-        %ul.side-header__box__menu
-          %li.side-header__box__menu__new-group
-            =link_to '#' do
-              =fa_icon 'edit'
-          %li.side-header__box__menu__edit-user
-            =link_to "#" do
-              =fa_icon 'cog'
-            
-    .groups
-      .group
-        = link_to "#" do
-          %p.group__group-name
-            グループ名
-          %p.group__latest-message
-            まだメッセージがありません
-      .group
-        = link_to "#" do
-          %p.group__group-name
-            グループ名
-          %p.group__latest-message
-            まだメッセージがありません
-      .group
-        = link_to "#" do
-          %p.group__group-name
-            グループ名
-          %p.group__latest-message
-            まだメッセージがありません
-      .group
-        = link_to "#" do
-          %p.group__group-name
-            グループ名
-          %p.group__latest-message
-            まだメッセージがありません
-  
-  
+  = render 'shared/side_bar'
   .chat-main
     .main-header
       .main-header__left-box
@@ -50,19 +9,19 @@
         %ul.main-header__left-box__member-list
           Member：
           %li.main-header__left-box__member-list__member 
-            maru
+          まる
         = link_to "#" do
           .main-header__edit-btn
             edit
             
     .messages
-      = render "messages"
+      = render partial: 'messages', collection: @messages
     
     .form
-      .input-box
-        = form_for @message do |f|
-          = f.text_field :post, class: "input-box__text", placeholder: 'type a message'
-          = f.label :image, class: 'input-box__image', multipart: true do
-            = fa_icon 'picture-o'
-            = f.file_field :image, class: 'hidden'
-          = f.submit 'send', class: 'submit-btn'
+      = form_for [@group, @message], id: 'new_message' do |f|
+        = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+        .form__mask
+        = f.label :image, class: 'form__mask__image' do
+          = fa_icon 'picture-o', class: 'icon'
+          = f.file_field :image, class: 'hidden'
+        = f.submit value:'Send', class: 'form__submit', "data-disable-with": false

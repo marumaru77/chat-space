@@ -5,12 +5,13 @@
     .main-header
       .main-header__left-box
         %h2.main-header__left-box__current-group{"data-group_id" => ""}
-          グループ名
+          = @group.name
         %ul.main-header__left-box__member-list
           Member：
           %li.main-header__left-box__member-list__member 
-          まる
-        = link_to "#" do
+            - @group.group_users.each do |group_user|
+              = group_user.user.name
+        = link_to edit_group_path(@group) do
           .main-header__edit-btn
             edit
             

@@ -33,7 +33,7 @@ Things you may want to cover:
 ### Association
 - has_many :messages
 - has_many :members
-- has_many :groups, throught:  :members
+- has_many :groups, throught:  :group_users
 
 ## groupsテーブル
 |Column|Type|Options|
@@ -42,9 +42,9 @@ Things you may want to cover:
 ### Association
 - has_many :messages
 - has_many :members
-- has_many :users, throught:  :members
+- has_many :users, throught:  :group_users
 
-## membersテーブル
+## group_usersテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|

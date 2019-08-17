@@ -19,3 +19,4 @@
 public/uploads/*
 *.jpg
 *.png
+config/secrets.yml
